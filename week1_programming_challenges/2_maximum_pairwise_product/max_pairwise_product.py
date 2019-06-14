@@ -2,13 +2,14 @@
 
 
 def max_pairwise_product(numbers):
-    n = len(numbers)
     maxA = 0
     maxB = 0
-    for num in range(n):
+    for num in numbers:
         if num > maxA :
             maxB = maxA
             maxA = num
+        elif num > maxB :
+            maxB = num
 
     return maxB*maxA
 
