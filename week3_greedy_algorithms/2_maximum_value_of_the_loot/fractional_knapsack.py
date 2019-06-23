@@ -1,10 +1,22 @@
 # Uses python3
 import sys
 
+
+
 def get_optimal_value(capacity, weights, values):
     value = 0.
     # write your code here
 
+    lst_tups = zip(values, weights)
+
+    lst_tups_sorted = sorted(lst_tups, key = lambda x : x[0] / x[1], reverse = True)
+
+    for e in lst_tups_sorted:
+        if capacity == 0:
+            return value
+        a = min(e[1], capacity)
+        value += a * ( e[0] / e[1] )
+        capacity -= a
     return value
 
 
