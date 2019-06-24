@@ -1,12 +1,14 @@
 #Uses python3
 
 import sys
+import numpy as np
 
 def max_dot_product(a, b):
     #write your code here
     res = 0
-    for i in range(len(a)):
-        res += a[i] * b[i]
+    a.sort()
+    b.sort()
+    res = np.dot(a,b)
     return res
 
 if __name__ == '__main__':
