@@ -3,6 +3,12 @@ import sys
 
 def optimal_summands(n):
     summands = []
+    i  = 1
+    while i < (n-i) :
+        summands.append(i)
+        n -= i
+        i += 1
+    summands.append(n)
     #write your code here
     return summands
 
