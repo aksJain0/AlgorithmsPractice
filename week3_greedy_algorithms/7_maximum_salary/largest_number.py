@@ -5,7 +5,10 @@ import sys
 def largest_number(a):
     #write your code here
     res = ""
-    for x in a:
+    srtd = sorted(a,  key = len)
+    srtd = sorted (srtd, key = lambda x : x[0], reverse = True)
+        
+    for x in srtd:
         res += x
     return res
 
