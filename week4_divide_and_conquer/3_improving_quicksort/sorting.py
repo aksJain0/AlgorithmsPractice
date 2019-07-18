@@ -5,7 +5,7 @@ import random
 def partition3(a, l, r):
     #write your code here
     x = a[l]
-    j = 1
+    j = l
     k = j
     cnt = 1
     for i in range(l+1, r+1):
@@ -17,13 +17,12 @@ def partition3(a, l, r):
             else:
                 k += 1
                 j += 1
-                a[k], a[j] = a[j], a[k]
                 a[i], a[j] = a[j], a[i]
 
         elif a[i] == x:
             k += 1
             a[i], a[k] = a[k], a[i]          
-
+    # print("in partition j = ", j, "k = ", k, "a[l]=", a[l])
     a[l], a[j] = a[j], a[l]
     return (j,k)
 
@@ -43,9 +42,13 @@ def randomized_quick_sort(a, l, r):
         return
     k = random.randint(l, r)
     a[l], a[k] = a[k], a[l]
+    # print("Pivot = ", a[l])
     #use partition3
     #m = partition2(a, l, r)
     j,k = partition3(a,l, r)
+
+    # print("j = ", j, "k = ", k)
+    
     randomized_quick_sort(a, l, j-1);
     randomized_quick_sort(a, k+1, r);
 
